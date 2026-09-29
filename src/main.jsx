@@ -79,8 +79,8 @@ function Home({ setPage }) {
         <p className="kicker">A desk for client work</p>
         <h1>Send the work. Then get paid.</h1>
         <p className="lede">
-          GigaLabPro Desk keeps the proposal, the invoice, and the follow-up in one place.
-          It also rewrites a draft, turns finished work into three posts, and makes a five-step week plan.
+          A short brief comes back as a proposal with scope, a timeline, and your price, then the invoice
+          and the email that asks for a yes. Rewrite, three social posts, and a five-step week plan sit on the same desk.
           Pro is {PRICE}.
         </p>
         <div className="row">
@@ -96,11 +96,12 @@ function Home({ setPage }) {
             <button>Week plan</button>
           </aside>
           <article>
-            <h2>Northwind Cafe</h2>
-            <p>
-              One-page site, menu, and a contact form. Two weeks. $1,800.
-              The desk writes the proposal with that price already in it, then the email that asks for a yes.
-            </p>
+            <p className="kicker">Worked example</p>
+            <h2>Proposal · Northwind Cafe</h2>
+            <p><strong>Scope.</strong> One-page site, menu, contact form.</p>
+            <p><strong>Timeline.</strong> Two weeks from approval.</p>
+            <p><strong>Investment.</strong> $1,800.</p>
+            <p>Reply to approve. The invoice and the follow-up use the same client and rate.</p>
           </article>
         </div>
       </section>
@@ -118,6 +119,29 @@ function Home({ setPage }) {
           <article className="card">
             <h3>You still edit</h3>
             <p>The draft is yours to change, then copy. Nothing is sent until you decide it is ready.</p>
+          </article>
+        </div>
+      </section>
+      <section className="band">
+        <h2>{PRICE}, on the first screen.</h2>
+        <div className="prices">
+          <article>
+            <h2>Free</h2>
+            <strong>$0</strong>
+            <ul>
+              <li>Two drafts a day</li>
+              <li>Every recipe, so you can feel the flow</li>
+            </ul>
+          </article>
+          <article className="pro">
+            <h2>Pro</h2>
+            <strong>{PRICE}</strong>
+            <ul>
+              <li>Business name, rate, and tone kept for the next client</li>
+              <li>Drafts stay on the desk until you send them</li>
+              <li>300 drafts a day</li>
+            </ul>
+            <button className="solid" onClick={() => setPage('pricing')}>Compare the plans</button>
           </article>
         </div>
       </section>
