@@ -246,8 +246,24 @@ function Desk() {
   );
 }
 
+const pageFromLocation = () => window.location.hash.replace(/^#/, '') || 'home';
+
 function App() {
-  const [page, setPage] = useState('home');
+  const [page, setPageState] = useState(pageFromLocation);
+  const setPage = (next) => {
+    const id = next || 'home';
+    if (pageFromLocation() !== id) {
+      window.history.pushState({ page: id }, '', `#${id}`);
+    }
+    setPageState(id);
+  };
+
+  React.useEffect(() => {
+    const onPop = () => setPageState(pageFromLocation());
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
   let view = <Home setPage={setPage} />;
   if (page === 'recipes') view = <Recipes setPage={setPage} />;
   if (page === 'pricing') view = <Pricing setPage={setPage} />;
